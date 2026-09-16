@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.24)
 project(com_app VERSION 1.0.0 LANGUAGES C RC)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
 option(BUILD_TESTS "Build GoogleTest tests" ON)
 
 add_library(project_options INTERFACE)
@@ -11,6 +13,7 @@ target_compile_definitions(project_options INTERFACE
     WIN32_LEAN_AND_MEAN
     NOMINMAX
     _WIN32_WINNT=0x0A00
+    _CRT_SECURE_NO_WARNINGS
 )
 if(CMAKE_C_COMPILER_ID STREQUAL "MSVC" OR
    CMAKE_C_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC")

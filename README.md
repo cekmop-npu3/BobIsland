@@ -39,8 +39,22 @@ cmake --build --preset debug
 ctest --preset debug
 ```
 
-The application executable is `com_app.exe`. Keep it with `backend.dll` and
-`graphics.dll` when copying it to another computer.
+All runtime files are written to `build/<preset>/bin/`. The application executable
+is `com_app.exe`; keep it with `backend.dll` and `graphics.dll` when copying it.
+
+## Test without physical equipment
+
+Run `create_virtual_ports.bat` from an elevated Command Prompt to install
+com0com if necessary and create a paired `COM10` and `COM11`. Pass two unused
+COM names to choose another pair, for example:
+
+```bat
+create_virtual_ports.bat COM20 COM21
+```
+
+Start `build\debug\bin\com_app.exe` twice, choose one virtual port in each
+window, and choose the same stop-bit setting. The two app instances can then send
+text to each other.
 
 ## Layout
 

@@ -11,5 +11,5 @@ The status callback reads the backend counter and error state every 250 ms. On
 window close, the application calls `serial_close`, which stops both communication
 threads and releases the COM-port handle.
 
-The resource files provide the Windows manifest. Build this directory through the
-root CMake project; it is not intended to be configured separately.
+The manifest provides Windows application metadata. Build this directory through
+the root CMake project; it is not intended to be configured separately.

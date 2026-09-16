@@ -21,3 +21,6 @@ ctest --preset debug
 The connected-port test is skipped unless `TEST_PORT_A` and `TEST_PORT_B` contain
 the numeric ends of a connected physical or virtual COM-port pair. GUI tests need
 a Windows desktop session.
+
+`create_virtual_ports.bat COM10 COM11` creates a virtual pair for this test when
+the com0com driver is available.

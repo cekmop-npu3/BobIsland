@@ -9,18 +9,18 @@ if not exist "%TOOLS_DIR%" mkdir "%TOOLS_DIR%"
 
 call :add_known_paths
 call :ensure_msvc
-if errorlevel 1 goto :failure
+if not "%ERRORLEVEL%"=="0" goto :failure
 call :ensure_cmake
-if errorlevel 1 goto :failure
+if not "%ERRORLEVEL%"=="0" goto :failure
 call :ensure_ninja
-if errorlevel 1 goto :failure
+if not "%ERRORLEVEL%"=="0" goto :failure
 call :ensure_llvm
-if errorlevel 1 goto :failure
+if not "%ERRORLEVEL%"=="0" goto :failure
 
 cmake --preset debug
-if errorlevel 1 goto :failure
+if not "%ERRORLEVEL%"=="0" goto :failure
 cmake --build --preset debug
-if errorlevel 1 goto :failure
+if not "%ERRORLEVEL%"=="0" goto :failure
 
 echo.
 echo Setup complete.
